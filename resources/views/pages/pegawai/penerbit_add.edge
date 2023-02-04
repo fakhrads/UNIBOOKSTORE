@@ -1,0 +1,68 @@
+@layout('layouts/base')
+
+@set('title','UNIBOOKSTORE')
+@set('pageHeader','Tambah Penerbit Baru')
+
+@section('custom-css')
+
+@end
+
+@section('content')
+<section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="py">
+            <a href="/admin/penerbit/" class="btn btn-primary">Kembali</a>
+        </div>
+        <br/>
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              @include('components/message')
+              <form class="form" method="POST" action="{{ route('admin_penerbit_store') }}">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label >Nama Penerbit</label>
+                      <input type="text" class="form-control" name="nama_penerbit" placeholder="Ex: Gramedia">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label >Alamat</label>
+                      <textarea type="text" class="form-control" name="alamat" placeholder="Ex: Jalan Sekeloa"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label >Kota</label>
+                      <input type="text" class="form-control" name="kota" placeholder="Ex: Bandung">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label>Telepon</label>
+                      <input type="text" class="form-control" name="telepon" placeholder="Ex: 0812xxxxx">
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary me-1 mb-1">
+                      Submit
+                    </button>
+                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+@end
+
+@section('custom-js')
+
+@end

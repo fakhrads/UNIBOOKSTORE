@@ -1,0 +1,62 @@
+<div class="sidebar-menu">
+    <ul class="menu">
+        <li class="sidebar-title">Menu Utama</li>
+        
+        <li
+            @if( request.url() == '/') 
+                class="sidebar-item active">
+            @else 
+                class="sidebar-item">
+            @end
+            <a href="/" class='sidebar-link'>
+                <i class="bi bi-grid-fill"></i>
+                <span>Halaman Utama</span>
+            </a>
+        </li>
+        
+        <li
+            @if( request.url() == '/admin/buku' || request.url() == '/admin/penerbit') 
+                class="sidebar-item has-sub active">
+            @else 
+                class="sidebar-item has-sub">
+            @end
+            <a href="#" class='sidebar-link'>
+                <i class="bi bi-stack"></i>
+                <span>Halaman Admin</span>
+            </a>
+            <ul class="submenu ">
+                <li 
+                    @if( request.url() == '/admin/buku') 
+                        class="submenu-item active">
+                    @else 
+                        class="submenu-item">
+                    @end
+                    
+                    <a href="/admin/buku">Kelola Data Buku</a>
+                </li>
+                <li 
+                    @if( request.url() == '/admin/penerbit') 
+                        class="submenu-item active">
+                    @else 
+                        class="submenu-item">
+                    @end
+                    
+                    <a href="/admin/penerbit">Kelola Data Penerbit </a>
+                </li>
+            </ul>
+        </li>
+        
+        <li
+            @if( request.url() == '/pengadaan') 
+                class="sidebar-item active">
+            @else 
+                class="sidebar-item">
+            @end
+            <a href="/pengadaan" class='sidebar-link'>
+                <i class="bi bi-building"></i>
+                <span>Halaman Pengadaan</span>
+            </a>
+        </li>
+        
+    </ul>
+</div>

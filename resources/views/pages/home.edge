@@ -1,0 +1,54 @@
+@layout('layouts/base')
+
+@set('title','Halaman Utama')
+@set('pageHeader','Data Buku UNIBOOKSTORE')
+
+@section('custom-css')
+  <link rel="stylesheet" href="/asset/css/shared/iconly.css" />
+  <link
+    rel="stylesheet"
+    href="/assets/extensions/simple-datatables/style.css"
+  />
+  <link rel="stylesheet" href="/assets/css/pages/simple-datatables.css" />
+@endsection
+
+@section('content')
+<section class="section">
+    <div class="card">
+      <!-- <div class="card-header">Data Guru Yayasan</div> -->
+      <div class="card-body">
+        @include('components/message')
+        <table class="table table-striped" id="table1">
+          <thead>
+            <tr>
+              <th>ID Buku </th>
+              <th>Kategori</th>
+              <th>Nama Buku</th>
+              <th>Harga</th>
+              <th>Stok</th>
+              <th>Penerbit</th>
+            </tr>
+          </thead>
+          <tbody>
+            @each(item in data)
+              <tr>
+                <td>{{ item.kode_buku }}</td>
+                <td>{{ item.kategori }}</td>
+                <td>{{ item.nama_buku }}</td>
+                <td>{{ item.harga }}</td>
+                <td>{{ item.stok }}</td>
+                <td>{{ item.nama_penerbit }}</td>
+              </tr>
+            @end
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+@end
+
+
+@section('custom-js')
+    <script src="/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+    <script src="/assets/js/pages/simple-datatables.js"></script>
+@endsection

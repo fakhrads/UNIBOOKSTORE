@@ -1,0 +1,86 @@
+@layout('layouts/base')
+
+@set('title','Halaman Tambah Buku')
+@set('pageHeader','Tambah Buku Baru')
+
+@section('custom-css')
+
+@end
+
+@section('content')
+<section id="multiple-column-form">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="py">
+            <a href="/admin/buku" class="btn btn-primary">Kembali</a>
+        </div>
+        <br/>
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              @include('components/message')
+              <form class="form" method="POST" action="{{ route('admin_buku_update') }}">
+                <input type="hidden" name="id" value="{{ data.id }}">
+                <div class="row">
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label >Kode Buku</label>
+                      <input type="text" class="form-control" name="kode_buku" placeholder="Ex: K1001" value="{{ data.kode_buku }}">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label >Kategori Buku</label>
+                      <input type="text" class="form-control" name="kategori" placeholder="Ex: Islami" value="{{ data.kategori }}">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label >Nama Buku</label>
+                      <input type="text" class="form-control" name="nama_buku" placeholder="Ex: Pertanda Akhir Zaman" value="{{ data.nama_buku }}">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label >Harga</label>
+                      <input type="number" class="form-control" name="harga" placeholder="Ex: 20000" value="{{ data.harga }}">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label>Stok</label>
+                      <input type="number" class="form-control" name="stok" placeholder="Ex: 20" value="{{ data.stok }}">
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-12">
+                    <div class="form-group">
+                      <label for="first-name-column">Penerbit</label>
+                      <select class="form-select" name="penerbit">
+                          <option value="{{ data.penerbit_id }}">Pilih Salah Satu...</option>
+                          @each(item in data_penerbit)
+                            <option value="{{ item.id }}">{{ item.nama }}</option>
+                          @end
+                      </select>                    
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary me-1 mb-1">
+                      Submit
+                    </button>
+                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+@end
+
+@section('custom-js')
+
+@end
